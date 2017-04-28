@@ -1,0 +1,285 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="echarts.js"></script>
+    
+    <title>JOUR2106 Data Visualization for News</title>
+
+    <style>
+        html {
+            position: relative;
+        }
+        
+        footer {
+            background-color: #f5f5f5;
+            position: absolute;
+            margin-top: 15px;
+            padding: 20px;
+            height: 70px;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+
+                <h1>Homework 6</h1>
+                <small>Analysis for my homepage according to Google Analytics </small>
+                <br>
+                                <small>Update on 28 May</small>
+       
+                 <h2> How was the website promoted? </h2>
+
+                <p>
+                    The Google Analytics code was implemented to my website on 1 April and the statistics was concluded on 27 April for this assignment.
+                </p>
+                
+                                <p>
+                   This website was promoted on my social media as shown below.
+                </p>
+  <table class="table table-bordered table-hover">
+                    <tr>
+                       <th width="37%" rowspan="2"><center>Facebook <img src="http://www.androidpolice.com/wp-content/uploads/2014/12/nexus2cee_Facebook-Thumb.png" height=50px></center></th>
+    <td width="63%"><center>1 April 12:16pm</center></td>
+  </tr>
+  <tr>
+    <td><center>7 April 02:54am</center></td>
+  </tr>
+
+                    </tr>
+                    <tr>
+                        <th> <center>Linkedin <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Linkedin_icon.svg/2000px-Linkedin_icon.svg.png" height=50px> </center></th>
+                        <td> <center> 10 April </center> </td>
+                    </tr>
+                    <tr>
+
+                </table>
+                                <p>
+This website is mainly promoted at the beginning of April to see if there is really a drastic decrease in the number of viewcounts. Different time is used to promote on my Facebook so as to accomodate people in different countries.
+                </p>       
+        
+<h2> How many people go to the website? </h2>
+     
+<div id="view" style="width: 800px;height:400px;"></div>
+<script type="text/javascript">
+	
+        // 基于准备好的dom，初始化echarts实例
+ var myChart = echarts.init(document.getElementById('view'));
+     
+option = {
+
+    tooltip : {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross',
+            label: {
+                backgroundColor: '#6a7985'
+            }
+        }
+    },
+
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : ["1 April", "2 April", "3 April", "4 April", "5 April", "6 April","7 April","8 April","9 April","10 April","11 April","12 April","13 April","14 April","15 April","16 April","17 April","18 April","19 April","20 April","21 April","22 April","23 April","24 April","25 April","26 April","27 April",]
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+      dataZoom: [
+        {
+            type: 'slider',
+            xAxisIndex: 0,
+            filterMode: 'empty',
+            start: 0,
+            end: 45,
+        },
+        {
+            type: 'inside',
+            xAxisIndex: 0,
+            filterMode: 'empty'
+        },
+    ],
+    series : [
+        {
+            name:'Total no. of Viewers',
+            type:'line',
+            stack: '总量',
+            areaStyle: {normal: {}},
+            data:[35,1,5,2,0,1,23,2,2,5,2,1,1,0,1,0,0,0,0,0,0,0,2,0,2,1,1],
+             markPoint : {
+                data : [
+                {name : 'Facebook_one', value : 35, xAxis: 0, yAxis: 35},
+                {name : 'Facebook_two', value : 23, xAxis: 6, yAxis: 23},
+                {name : 'Linkedin', value : 5, xAxis: 9, yAxis: 5}
+                ]
+            },
+            
+        },
+       
+    ]
+};
+
+ myChart.setOption(option);
+    </script>
+
+    <br>
+
+<p>
+As you can see above, the website witnesses the largest number of viewcounts : 35 and 23, after it was promoted on Facebook. Linkedin does not have a good effect, with only 5 viewcounts. The reason behind could be that I have more friends on Facebook than connections on Linkedin. 
+</p>
+<p>
+If you scroll the bar to witness the whole event, you can see that the website viewcounts nearly drop to 0. It can be explained that social network promotions are important to boost a website viewcount.
+</p>
+
+<h1>Where do people visit my website?</h1>
+
+<p>
+It is very strange that according to Google Analytics, all successfully-recorded viewers (which there are only 11) are boys and under the age of 18-25. Even though I knew girls who are not in this age group visited my website, Google Analytics didn't count that unfortunately.
+</p>
+
+<p>So let's look where do people actually visited my website</p>
+
+<div class="infogram-embed" data-id="map-2619929261323" data-type="interactive" data-title="Map"></div><script>!function(e,t,s,i){var n="InfogramEmbeds",o=e.getElementsByTagName("script"),d=o[0],r=/^http:/.test(e.location)?"http:":"https:";if(/^\/{2}/.test(i)&&(i=r+i),window[n]&&window[n].initialized)window[n].process&&window[n].process();else if(!e.getElementById(s)){var a=e.createElement("script");a.async=1,a.id=s,a.src=i,d.parentNode.insertBefore(a,d)}}(document,0,"infogram-async","//e.infogr.am/js/dist/embed-loader-min.js");</script><div style="padding:8px 0;font-family:Arial!important;font-size:13px!important;line-height:15px!important;text-align:center;border-top:1px solid #dadada;margin:0 30px"><a href="https://infogr.am/map-2619929261323" style="color:#989898!important;text-decoration:none!important;" target="_blank" rel="nofollow">Map</a><br><a href="https://infogr.am" style="color:#989898!important;text-decoration:none!important;" target="_blank" rel="nofollow">Create your own infographics</a></div>
+
+I didn't use echart as I couldn't find a json with Hong Kong as one region on the map. This is important as most of my visitors are friends in Hong Kong (with 34 visitors). However, my friends from other countries like Brazil, UK, US, Latvia, Spain, etc went to my website. Therefore, you can still see the data on the map above.
+
+<h1>Competition between Apple and Windows </h1>
+<p>Obviously most of the visitors use their iPhone to visit my website and iOS leads in my chart, followed by Macintosh and Window which get the same data. Android is the least popular.
+</p>
+
+<div id="device" style="width: 800px;height:400px;"></div>
+<script type="text/javascript">
+	
+        // 基于准备好的dom，初始化echarts实例
+ var myChart2 = echarts.init(document.getElementById('device'));
+
+option = {
+    tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b}: {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        x: 'left',
+        data:['iOS','Macintosh','Windows','Android']
+    },
+    series: [
+        {
+            name:'Operating System',
+            type:'pie',
+            radius: ['50%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+                normal: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    show: true,
+                    textStyle: {
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data:[
+                {value:30, name:'iOS'},
+                {value:22, name:'Macintosh'},
+                {value:22, name:'Windows'},
+                {value:13, name:'Android'}
+            ]
+        }
+    ]
+};
+ myChart2.setOption(option);
+    </script>
+
+<h1>How about browser? A new competitor: Google vs Apple vs Windows </h1>
+<p>Unfortunately, Windows lose again and Google Chrome wins. It follows with Safari, mainly because most people are using iPhone and automatically Safari is the default browser. It is interesting to see Internet Explorer or Microsoft Edge are not there even though some people use Windows. That means people who use Windows use Chrome rather than the default browser. 
+</p>
+
+<div id="browser" style="width: 800px;height:400px;"></div>
+<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+ var myChart3 = echarts.init(document.getElementById('browser'));
+
+option = {
+    tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b}: {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        x: 'left',
+        data:['Chrome','Safari','Android Webview']
+    },
+    series: [
+        {
+            name:'Browser',
+            type:'pie',
+            radius: ['50%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+                normal: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    show: true,
+                    textStyle: {
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data:[
+                {value:48, name:'Chrome'},
+                {value:27, name:'Safari'},
+                {value:12, name:'Android Webview'}
+            ]
+        }
+    ]
+};
+
+ 
+ myChart3.setOption(option);
+    </script>
+</body>
